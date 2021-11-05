@@ -1,13 +1,13 @@
-#  一、数据结构
+#  数据结构
 
-## 1.1 定义
+## 定义
 
 - 数据元素（Data Element）：数据的基本单位
 - 数据项（Data Item）：用来描述数据元素，是数据的最小单位
 - 数据对象：具有相同性质的数据元素集合
 - 数据结构（Data Structure） = 数据对象 + 结构
 
-## 1.2 构成
+## 构成
 
 - 逻辑结构
   - 集合
@@ -28,9 +28,9 @@
 
   运算描述针对逻辑结构，运算实现针对存储结构
 
-# 二、算法
+# 算法
 
-## 2.1 特质
+## 特质
 
 - 有穷性：必须执行有限次运算来实现
 - 确定性：对于同意输入只能得到相同输出
@@ -38,14 +38,14 @@
 - 输入性：可以有零个或多个输入
 - 输出性：可以由一个或多个输出
 
-## 2.2 描述
+## 描述
 
 - 自然语言（Natural Language）
 - 流程图（FlowChart）
 
 - 类程序设计语言（Similar-programming Language）
 
-## 2.3 评估
+## 评估
 
 - 正确性（Correctness）
 - 可用性（Usability）
@@ -55,16 +55,16 @@
 - 可移植性（Mobility）
 - 可测试性（Testability）
 
-## 2.4 复杂度
+## 复杂度
 
-### 2 4.1 时间复杂度
+### 4.1 时间复杂度
 
 （Time Complexity）
 
-时间开销$T(n)$与问题规模$n$之间的关系
+时间开销$$T(n)$$与问题规模$$n$$之间的关系
 
 1. 方法
-   1. 频度统计法：确定$O(f(n))$
+   1. 频度统计法：确定$$O(f(n))$$
    2. 渐进时间复杂度：知晓级数即可
    
 2. 依赖于数据的算法：采用平均复杂度
@@ -73,29 +73,29 @@
 
    常对幂指阶
    
-   $O(1)<O(\log_2n)<O(n)<O(n\log_2n)<O(n^2)<O(n^3)<O(2^n)<O(n!)<O(n^n)$
+   $$O(1)<O(\log_2n)<O(n)<O(n\log_2n)<O(n^2)<O(n^3)<O(2^n)<O(n!)<O(n^n)$$
 
-### 2.4.2 空间复杂度
+### 空间复杂度
 
 （Space Complexity）
 
-空间开销（内存开销）$S(n)$与问题规模$n$之间的关系
+空间开销（内存开销）$$S(n)$$与问题规模$$n$$之间的关系
 
-原地工作：算法所需内存空间为常量，即$S(n)=O(1)$
+原地工作：算法所需内存空间为常量，即$$S(n)=O(1)$$
 
 递归调用的空间复杂度=递归调用的深度
 
-# 三、线性表
+# 线性表
 
-## 3.1 定义
+## 定义
 
-n 个**相同类型**数据元素的**有限**序列，记为 $L=(a_1,a_2,\ldots,a_n)$
+n 个**相同类型**数据元素的**有限**序列，记为 $$L=(a_1,a_2,\ldots,a_n)$$
 
-L 称为表名，n 称为表长，$a_i$：第 i 个称为位序，$a_1$ 称为首元素，$a_n$ 称为末元素
+L 称为表名，n 称为表长，$$a_i$$：第 i 个称为位序，$$a_1$$ 称为首元素，$$a_n$$ 称为末元素
 
 除首元素，其他元素拥有一个直接前驱；除末元素，其他元素拥有一个直接后继
 
-## 3.2 基本操作
+## 基本操作
 
 1. 初始化 InitList(&L)
 
@@ -115,22 +115,22 @@ L 称为表名，n 称为表长，$a_i$：第 i 个称为位序，$a_1$ 称为�
 
 9. 表清空 Clear()
 
-## 3.3 顺序表（Sequential List）
+## 顺序表（Sequential List）
 
 顺序表是用顺序存储的方式来实现的线性表
 
 若用静态数组，表长一旦确定便不可更改，建议使用动态数组
 
 - 特点
-  1. **随机访问**，在$O(1)$时间内找到第i个元素
+  1. **随机访问**，在$$O(1)$$时间内找到第i个元素
   2. 存储密度高（=1），每个结点只存储数据元素，不记录相对关系，节省空间
   3. 因为设置了最大容量，空间会有富余，较为浪费
   4. 扩展容量不方便
   5. 插入、删除操作不方便，需要移动大量元素
 
-### 3.3.1 类模板定义
+### 类模板定义
 
-第$i$个元素的数组索引为$i-1$
+第$$i$$个元素的数组索引为$$i-1$$
 
 ```C++
 template <class T>
@@ -165,9 +165,9 @@ public:
 };
 ```
 
-### 3.3.2 具体实现
+### 具体实现
 
-#### 1）构造函数
+#### 构造函数
 
 ```python
 template <class T>
@@ -187,7 +187,7 @@ SeqList<T>::SeqList(T *a, int length, int maxlen) : _length(length), _maxlen(max
 }
 ```
 
-#### 1）插入元素
+#### 插入元素
 
 ```c++
 template <class T>
@@ -215,7 +215,7 @@ void SeqList<T>::InsertElem(int i, const T &e)
 }
 ```
 
-#### 3）删除元素
+#### 删除元素
 
 ```c++
 template <class T>
@@ -239,13 +239,13 @@ void SeqList<T>::DeleteElemByIndex(int i)
 }
 ```
 
-### 3.3.3 复杂度分析
+### 复杂度分析
 
-- 在任意位置插入、删除一个数据元素：$O(n)$
-- 定位、遍历、构造函数、重载赋值：$O(n)$
-- 其他函数：$O(1)$
+- 在任意位置插入、删除一个数据元素：$$O(n)$$
+- 定位、遍历、构造函数、重载赋值：$$O(n)$$
+- 其他函数：$$O(1)$$
 
-## 3.4 链表
+## 链表
 
 （Linked List）
 
@@ -258,7 +258,7 @@ void SeqList<T>::DeleteElemByIndex(int i)
   4. 易于动态扩展
   5. 存储密度 >1
 
-### 3.4.1 单链表
+### 单链表
 
 一个结点由两个域组成，data域存放数据元素，next域存放指向下一结点的指针
 
@@ -266,7 +266,7 @@ void SeqList<T>::DeleteElemByIndex(int i)
 
 欲得知已知结点的前结点，需要顺序访问；欲得知已知结点的后结点，仅需使用next指针
 
-#### 1）结点类模板定义
+#### 结点类模板定义
 
 ```c++
 template <class ElemType>
@@ -282,7 +282,7 @@ struct Node
 }
 ```
 
-#### 2）结点实现
+#### 结点实现
 
 ```c++
 // 结点类的实现部分
@@ -302,7 +302,7 @@ Node<ElemType>::Node(ElemType e, Node<ElemType> *link)
 }
 ```
 
-#### 2）链表类模板定义
+#### 链表类模板定义
 
 ```c++
 template <class ElemType>
@@ -333,21 +333,21 @@ public:
 }
 ```
 
-### 3.4.2 双向循环链表
+### 双向循环链表
 
 （Double Circular List）
 
-### 3.4.3 静态链表
+### 静态链表
 
 （Static List）
 
 用数组方式存储数据，但数据间关系模拟链式存储，适用于不支持指针的语言。
 
-# 四、栈、队列和递归
+# 栈、队列和递归
 
 栈和队列都是受限的线性表
 
-## 4.1 栈
+## 栈
 
 （Stack）
 
@@ -363,9 +363,9 @@ public:
   - 出栈（pop，也叫弹出）
   - 判断是否为空栈清空栈
 
-### 4.1.1 顺序栈
+### 顺序栈
 
-#### 1）类模板定义
+#### 类模板定义
 
 ```c++
 template <class T>
@@ -395,7 +395,7 @@ public:
 };
 ```
 
-#### 2）具体定义
+#### 具体定义
 
 ````c++
 template <class T>
@@ -439,19 +439,19 @@ void SeqStack<T>::PopElem()
 }
 ````
 
-#### 3）共享存储空间的双顺序栈
+#### 共享存储空间的双顺序栈
 
 <img src="https://trou.oss-cn-shanghai.aliyuncs.com/img/image-20201214083413534.png" alt="image-20201214083413534" style="zoom:67%;" />
 
 
 
-### 4.1.2 链式栈
+### 链式栈
 
 与顺序栈相比，链式栈对于同时使用多个栈的情况下可以共享存储
 
 用不带头结点的的单链表示链式栈，且头指针表示 top，指向栈顶
 
-#### 1）类模板定义
+#### 类模板定义
 
 ```c++
 template <class T>
@@ -478,7 +478,7 @@ public:
 };
 ```
 
-#### 1）具体实现
+#### 具体实现
 
 ```c++
 template <class T>
@@ -517,7 +517,7 @@ void LinkStack<T>::PopElem()
 }
 ```
 
-## 4.2 队列
+## 队列
 
 （Queue）
 
@@ -534,7 +534,7 @@ void LinkStack<T>::PopElem()
 
 约定：front 指向队头元素，rear 指向队尾元素后一个位置
 
-### 4.2.1 循环队列
+### 循环队列
 
 为了避免假溢出问题，把顺序队列所使用的存储空间构造成一个逻辑上首尾相连的循环队列，称为循环队列。
 
@@ -543,7 +543,7 @@ void LinkStack<T>::PopElem()
   - 不设rear，改设length，队空 `length == 0`；队满 `length == maxlen`
   - 新增数据成员flag，队空 `flag == 0`；队满 `flag == maxlen`
 
-#### 1）顺序队列类模板定义
+#### 顺序队列类模板定义
 
 ```c++
 template <class T>
@@ -574,7 +574,7 @@ public:
 };
 ```
 
-#### 2）具体定义
+#### 具体定义
 
 ```c++
 template <class T>
@@ -646,11 +646,11 @@ void SeqQueue<T>::DeleteQueue()
 }
 ```
 
-### 4.2.2 链式队列
+### 链式队列
 
 链式队列完全避免了假溢出的问题。
 
-#### 1）类模板定义
+#### 类模板定义
 
 `_front` 是空的头指针，其下一个元素是队头元素；`_rear` 指向队尾元素
 
@@ -681,7 +681,7 @@ public:
 };
 ```
 
-#### 2）具体定义
+#### 具体定义
 
 ```c++
 template <class T>
@@ -724,7 +724,7 @@ void LinkQueue<T>::DeleteQueue()
 }
 ```
 
-## 4.3 递归
+## 递归
 
 （Recursion）
 
@@ -746,7 +746,7 @@ void LinkQueue<T>::DeleteQueue()
 - 容易根据定义进行编程
 - 结构清晰，便于阅读
 
-### 4.3.1 递归转换为非递归
+### 递归转换为非递归
 
 原因
 
@@ -758,19 +758,19 @@ void LinkQueue<T>::DeleteQueue()
 - 对于尾递归和单项递归，可用循环结构的算法替代。
 - 自己用栈来模拟系统运行时的栈（工作记录），保存有关信息。
 
-#### 1）尾递归和单项递归的消除
+#### 尾递归和单项递归的消除
 
 尾递归：递归调用语句只有一个，且在函数最后。（如阶乘）
 
 单项递归：所有递归调用彼此间参数无关（不套娃），且均在函数最后。（如斐波那契数列）
 
-#### 2）用栈模拟系统运行时的栈
+#### 用栈模拟系统运行时的栈
 
-# 五、串、数组和广义表
+# 串、数组和广义表
 
-## 5.1 字符串
+## 字符串
 
-### 5.1.1 定义
+### 定义
 
 $$
 s=“a_0a_1\ldots a_{n-1}”
@@ -781,13 +781,13 @@ $$
 - 当串采用顺序存储时，存储串的数组名指出了串在内存中的首地址
 - C++中存储串的末尾会添加一个结束标识符NULL（编码值为0）
 
-### 5.1.2 模式匹配
+### 模式匹配
 
 （Pattern Matching）
 
 设 ob 为主串，pat 为模式串，查找 pat 在 ob 的匹配位置的操作称为模式匹配
 
-#### 1）Brute-Force算法
+#### Brute-Force算法
 
 从主串首字符开始依次匹配，若匹配失败，从第二个字符位开始匹配，以此类推。它是一种带回溯的算法。
 
@@ -818,9 +818,9 @@ int BF_find(const string &ob, const string &pat, const int p = 0)
 }
 ```
 
-时间复杂度（最坏）：$O(m\sdot n)$
+时间复杂度（最坏）：$$O(m\sdot n)$$
 
-#### 2）KMP算法
+#### KMP算法
 
 ```c++
 int KMP(const string &ob, const string &pat, const int start = 0)
@@ -866,21 +866,21 @@ void GetNext(const string &pat, int *next)
 }
 ```
 
-## 5.2 数组
+## 数组
 
 数组将线性关系进行扩展（一维变多维）
 
 数据类型受限
 
-## 5.3 稀疏矩阵
+## 稀疏矩阵
 
-### 5.3.1 矩阵的压缩存储
+### 矩阵的压缩存储
 
-- 对称矩阵 （$a_{ij} == a_{ji}$）：记录三角及对角线
+- 对称矩阵 （$$a_{ij} == a_{ji}$$）：记录三角及对角线
 - 三对角矩阵（除主对角线及其相邻两条斜线，其余元素均为0）：行列号插值不为1的为0
 - 稀疏矩阵 （大部分元素为0的矩阵）
 
-### 5.3.2 三元组
+### 三元组
 
 用（行、列、值）来记录稀疏矩阵中的非零元素
 
@@ -896,9 +896,9 @@ struct Triple
 };
 ```
 
-### 5.3.3 三元组顺序表
+### 三元组顺序表
 
-#### 1）类模板定义
+#### 类模板定义
 
 ```c++
 template <class T>
@@ -929,7 +929,7 @@ public:
 };
 ```
 
-#### 2）具体定义
+#### 具体定义
 
 ```c++
 template <class T>
@@ -1092,27 +1092,27 @@ void TriSparseMatrix<T>::FastTranspose(TriSparseMatrix<T> &e)
 }
 ```
 
-### 5.3.4 三元组的十字链表
+### 三元组的十字链表
 
 当非零元素经常变动时，不适合用顺序表。
 
 十字链表由行链表和列链表组成（不带头结点的循环表），每个非零元素既处于行链表又处于列链表中
 
-#### 1）非零元素结点类模板
+#### 非零元素结点类模板
 
-## 5.4 广义表
+## 广义表
 
 即列表（List），元素可以是一个数据也可以是一个表
 $$
 LS=(a_1,a_2,\ldots,a_n)
 $$
 
-- 表头：$a_1$
-- 表尾：$(a_2,a_3,\ldots,a_n)$
+- 表头：$$a_1$$
+- 表尾：$$(a_2,a_3,\ldots,a_n)$$
 
 - 深度：广义表中括号的深度；空表的深度为1
 
-### 5.4.1 广义链表
+### 广义链表
 
 <img src="https://trou.oss-cn-shanghai.aliyuncs.com/img/image-20201228093515706.png" alt="image-20201228093515706" style="zoom:67%;" /><img src="https://trou.oss-cn-shanghai.aliyuncs.com/img/image-20210104080520301.png" alt="image-20210104080520301" style="zoom:67%;" />
 
@@ -1128,15 +1128,15 @@ $$
 
 <img src="https://trou.oss-cn-shanghai.aliyuncs.com/img/image-20210104083030427.png" alt="image-20210104083030427" style="zoom:67%;" />
 
-#### 1）结点类模板定义
+#### 结点类模板定义
 
-#### 2）链表类模板定义
+#### 链表类模板定义
 
-# 六、数和森林
+# 数和森林
 
 一个数据可能有多个直接前驱（或后继），需要用非线性数据结构去表示，本章讲解树形结构的定义与实现
 
-## 6.1 树
+## 树
 
 (tree)
 
@@ -1144,15 +1144,15 @@ $$
 
 <img src="https://trou.oss-cn-shanghai.aliyuncs.com/img/image-20210104092654359.png" alt="image-20210104092654359" style="zoom:67%;" />
 
-### 6.1.1 定义
+### 定义
 
-树$T$是一个包含$n$个数据元素的有限集合，每个数据元素用一个结点表示，且有
+树$$T$$是一个包含$$n$$个数据元素的有限集合，每个数据元素用一个结点表示，且有
 
-1. $n=0$时，$T$为空树
-2. $n>0$时，$T$有且只有一个根（root），根结点只有后继，没有前驱
-3. $n>1$时，根以外的其余结点又是$m$个互不受限的非空有限集，它们是根结点的子树（subtree）
+1. $$n=0$$时，$$T$$为空树
+2. $$n>0$$时，$$T$$有且只有一个根（root），根结点只有后继，没有前驱
+3. $$n>1$$时，根以外的其余结点又是$$m$$个互不受限的非空有限集，它们是根结点的子树（subtree）
 
-### 6.1.2 术语
+### 术语
 
 - 结点（node）：每个数据元素及指向其子树根的分支
 - 结点的度（degree of node）：一个结点的分支个数（子树数目）
@@ -1170,11 +1170,11 @@ $$
 - 无序树：树中结点 p 的子树没有顺序
 - 森林（forest）：m 颗互不相交的的树的集合；对树中每个结点而言，其子树的集合即为森林（子树森林）
 
-### 6.1.3 存储结构
+### 存储结构
 
 采用链式存储为佳，记录前驱和后继其中一个即可完成全部功能
 
-#### 1）双亲(数组)表示法
+#### 双亲(数组)表示法
 
 1. 采用数组来存储，本质上是静态链表，所以不属于顺序存储
 
@@ -1182,9 +1182,9 @@ $$
     Parent 存储结点的双亲在数组中的序号。
 3. 实现求双亲操作很方便，但对于求某节点的孩子节点的操作需要查询整个数组，实现求兄弟的操作也比较困难。
 
-<img src="http://image.trouvaille0198.top/image-20210329082007138.png" alt="image-20210329082007138" style="zoom: 50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210329082007138.png" alt="image-20210329082007138" style="zoom: 50%;" />
 
-#### 2）孩子表示法
+#### 孩子表示法
 
 1. 多重链表
     链表中的每个结点包括一个数据域和多个指针域。数据域存储树中结点的自身信息，每个指针指向该结点的一个孩子结点。
@@ -1194,23 +1194,23 @@ $$
 2. 数组 + 单链表
     一维数组顺序存储树中各节点的信息，并将各结点的孩子信息组成一个单链表。
 
-#### 3）双亲 - 孩子表示法
+#### 双亲 - 孩子表示法
 将各结点的孩子结点组成一个单链表，同时用一维数组顺序存储树中的各节点，数组元素包括结点的自身信息、双亲结点在数组中的序号以及该结点的孩子结点链表的头指针。
 
 有些麻烦
 
-<img src="http://image.trouvaille0198.top/image-20210329082616400.png" alt="image-20210329082616400" style="zoom:67%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210329082616400.png" alt="image-20210329082616400" style="zoom:67%;" />
 
-#### 4）孩子 - 兄弟表示法
+#### 孩子 - 兄弟表示法
 
 1. 二重链表表示法
 2. 查找某结点的孩子结点比较方便，如果在每一个结点中增加一个指向双亲的指针，就可以方便地找到各结点的祖先。
 
-<img src="http://image.trouvaille0198.top/image-20210329082944536.png" alt="image-20210329082944536" style="zoom: 50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210329082944536.png" alt="image-20210329082944536" style="zoom: 50%;" />
 
-### 6.1.4 树、森林和二叉树的转换
+### 树、森林和二叉树的转换
 
-#### 1）树转化为二叉树
+#### 树转化为二叉树
 把树当作有序树看待：约定树中每一个结点的孩子结点按从左到右的次序顺序编号。
 
 - 操作
@@ -1223,30 +1223,30 @@ $$
     2. 树作这样的转化所构成的二叉树是唯一的。
     3. 树转化成的二叉树，其根结点无右子树。
 
-<img src="http://image.trouvaille0198.top/image-20210329084439741.png" alt="image-20210329084439741" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210329084439741.png" alt="image-20210329084439741" style="zoom:50%;" />
 
-#### 2）森林转化为二叉树
+#### 森林转化为二叉树
 
 森林转化成的二叉树，其根结点有右子树。
 
 1. 依次将森林中每棵树转化成相应的二叉树。
 2. 从第二棵二叉树开始，依次把当前的二叉树作为前一棵二叉树根结点的右子树，此时所得到的二叉树就是由森林转化得到的二叉树。
 
-<img src="http://image.trouvaille0198.top/image-20210329084517512.png" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210329084517512.png" style="zoom:50%;" />
 
-#### 3）二叉树转化为森林
+#### 二叉树转化为森林
 
 1. **连线**：若结点 p 是其双亲结点F的左孩子，则把从结点 p 延沿右分支所找到的所有结点和结点 F 用线连起来。
 2. **删线**：删除二叉树中所有结点和其右孩子结点之间的连线。
 3. **美化**：整理，使结构层次分明。
 
-<img src="http://image.trouvaille0198.top/image-20210329084543768.png" alt="image-20210329084543768" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210329084543768.png" alt="image-20210329084543768" style="zoom:50%;" />
 
-### 6.1.5 树的遍历
+### 树的遍历
 
 指按照某种顺序访问树中的每个结点，并使每个结点被访问一次且只被访问一次。
 
-#### 1）树的先根遍历
+#### 树的先根遍历
 若树为空，遍历结束。否则，
 
 1. 访问根结点；
@@ -1254,11 +1254,11 @@ $$
 
 **与二叉树先序遍历结果序列相同。**
 
-<img src="http://image.trouvaille0198.top/image-20210611135015723.png" style="zoom: 67%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210611135015723.png" style="zoom: 67%;" />
 
 ABEFKLCGDHIMNJ
 
-#### 2）树的后根遍历
+#### 树的后根遍历
 
 若树为空，遍历结束。否则，
 
@@ -1267,11 +1267,11 @@ ABEFKLCGDHIMNJ
 
 **与二叉树中序遍历结果序列相同。**
 
-<img src="http://image.trouvaille0198.top/image-20210611135015723.png" style="zoom: 67%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210611135015723.png" style="zoom: 67%;" />
 
 EKLFBGCHMNIJDA
 
-#### 3）树的层次遍历
+#### 树的层次遍历
 又称为树的广度遍历。从树的第一层（根结点）开始，自上至下逐层遍历，在同一层中，按从左到右的顺序对结点逐个访问。
 借助队列，结构按下述步骤层序遍历树：
 
@@ -1280,9 +1280,9 @@ EKLFBGCHMNIJDA
 3. 访问取出的结点p；如果结点p有孩子，则依次将它们入队列。
 4. 重复步骤2）、3），直到队列为空。
 
-### 6.1.6 森林的遍历
+### 森林的遍历
 
-#### 1）森林的先根遍历
+#### 森林的先根遍历
 若森林为空，返回；否则，
 
 1. 访问森林中第一棵树的根结点；
@@ -1292,11 +1292,11 @@ EKLFBGCHMNIJDA
 
 **与二叉树先序遍历结果序列相同。**
 
-![image-20210611135715150](http://image.trouvaille0198.top/image-20210611135715150.png)
+![image-20210611135715150](http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210611135715150.png)
 
 ABCDEFGHI
 
-#### 2）森林的中根遍历
+#### 森林的中根遍历
 
 若森林为空，返回；否则，
 
@@ -1306,11 +1306,11 @@ ABCDEFGHI
 
 **与二叉树中序遍历结果序列相同。**
 
-![](http://image.trouvaille0198.top/image-20210611135715150.png)
+![](http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210611135715150.png)
 
 BCDAFEHIG
 
-#### 3）森林的后根遍历
+#### 森林的后根遍历
 
 若森林为空，返回；否则，
 
@@ -1320,15 +1320,15 @@ BCDAFEHIG
 
 **与二叉树后序遍历结果序列相同。**
 
-![](http://image.trouvaille0198.top/image-20210611135715150.png)
+![](http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210611135715150.png)
 
 DCBFIHGEA
 
-## 6.2 二叉树
+## 二叉树
 
 （Binary Tree）
 
-### 6.2.1 定义
+### 定义
 
 二叉树是特殊的有序树，每个结点的度最多为2
 
@@ -1336,33 +1336,33 @@ DCBFIHGEA
 
 <img src="https://trou.oss-cn-shanghai.aliyuncs.com/img/image-20210104093053829.png" alt="image-20210104093053829" style="zoom:67%;" />
 
-### 6.2.2 性质
+### 性质
 
 1. n 个结点，分支数为 n-1
 2. n 个叶子节点，有 n-1 个度为 2 的节点
-3. n 个结点，其高度范围为 $[\lceil log_2(n+1\rceil,n]$
-4. 高度为 h ，其节点数范围为 $[h,2^h-1]$
-5. 完全二叉树时，找 i 的子节点：$2i+1 \ 与 \ 2i+2$
+3. n 个结点，其高度范围为 $$[\lceil log_2(n+1\rceil,n]$$
+4. 高度为 h ，其节点数范围为 $$[h,2^h-1]$$
+5. 完全二叉树时，找 i 的子节点：$$2i+1 \ 与 \ 2i+2$$
 
-### 6.2.3 遍历
+### 遍历
 
 （Traversing Binary Tree, TBT）
 
 定义：按某种顺序访问每个结点，并使每个结点只被访问一次
 
-方法：规定$L,D,R$为访问左子树，根，右子树，有：（规定先左再右）
+方法：规定$$L,D,R$$为访问左子树，根，右子树，有：（规定先左再右）
 
-1. $DLR$：先序遍历
-2. $LDR$：中序遍历
-3. $LRD$：后序遍历
+1. $$DLR$$：先序遍历
+2. $$LDR$$：中序遍历
+3. $$LRD$$：后序遍历
 
 先序+中序（or 后序+中序）的遍历结果可以反向推导出二叉树
 
-<img src="http://image.trouvaille0198.top/image-20210316141122137.png" alt="image-20210316141122137" style="zoom: 67%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210316141122137.png" alt="image-20210316141122137" style="zoom: 67%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210316141042079.png" alt="image-20210316141042079" style="zoom:67%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210316141042079.png" alt="image-20210316141042079" style="zoom:67%;" />
 
-#### 1）先序遍历
+#### 先序遍历
 
 ```c++
 template <class T>
@@ -1409,7 +1409,7 @@ void BinaryTree<T>::PreOrder_NoRecurve(BinTreeNode<T> *&root)
 }
 ```
 
-#### 2）中序遍历
+#### 中序遍历
 
 ```c++
 template <class T>
@@ -1456,7 +1456,7 @@ void BinaryTree<T>::InOrder_NoRecurve(BinTreeNode<T> *&root)
 }
 ```
 
-#### 3）后序遍历
+#### 后序遍历
 
 ```c++
 template <class T>
@@ -1518,7 +1518,7 @@ void BinaryTree<T>::PostOrder_NoRecurve(BinTreeNode<T> *&root)
 }
 ```
 
-#### 4）层序遍历
+#### 层序遍历
 
 ```c++
 template <class T>
@@ -1547,14 +1547,14 @@ void BinaryTree<T>::LevelOrder(BinTreeNode<T> *&root)
 }
 ```
 
-#### 5）遍历的用途
+#### 遍历的用途
 
 1. 打印内容
 2. 知晓层数
 3. 统计结点
 4. 使非线性结构线性化
 
-#### 6）遍历的 C++ 写法
+#### 遍历的 C++ 写法
 
 ```c++
 void PreOrder(BinTreeNode<T> *root);
@@ -1564,9 +1564,9 @@ void PreOrder(const BinTreeNode<T> *root) const;
 void PreOrder(BinTreeNode<T> *&root);
 ```
 
-### 6.2.4 定义
+### 定义
 
-#### 1）类模板定义
+#### 类模板定义
 
 ```c++
 template <class T>
@@ -1638,7 +1638,7 @@ public:
 };
 ```
 
-#### 2）具体定义
+#### 具体定义
 
 ```c++
 template <class T>
@@ -1838,7 +1838,7 @@ int BinaryTree<T>::GetLeafNum(const BinTreeNode<T> *root) const
 
 
 
-## 6.3 线索二叉树
+## 线索二叉树
 
 (Threaded Binary Tree)
 
@@ -1858,7 +1858,7 @@ int BinaryTree<T>::GetLeafNum(const BinTreeNode<T> *root) const
 
 <img src="https://trou.oss-cn-shanghai.aliyuncs.com/img/image-20210111093250495.png" alt="image-20210111093250495" style="zoom:67%;" />
 
-### 6.3.1 查找结点的前驱和后继算法
+### 查找结点的前驱和后继算法
 
 1. 中序线索二叉树
 
@@ -1883,11 +1883,11 @@ int BinaryTree<T>::GetLeafNum(const BinTreeNode<T> *root) const
 ​	若p为左子树根结点，且无右兄弟，后继为双亲结点；
 ​	若p为左子树根结点，且有右兄弟，后继为后序遍历双亲结点右子树时访问的第一个结点。
 
-## 6.4 堆
+## 堆
 
 （Heap）
 
-### 6.4.1 定义
+### 定义
 
 在完全二叉树中任何非终端节点的关键字均不大于（或不小于）其左、右孩子结点的关键字
 
@@ -1899,40 +1899,40 @@ int BinaryTree<T>::GetLeafNum(const BinTreeNode<T> *root) const
 
 使用顺序存储来构建堆
 
-#### 6.4.2 向下调整 FilterDown
+#### 向下调整 FilterDown
 
-<img src="http://image.trouvaille0198.top/image-20210425170330961.png" alt="image-20210425170330961" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210425170330961.png" alt="image-20210425170330961" style="zoom:50%;" />
 
-## 6.5 哈夫曼树 
+## 哈夫曼树 
 
-### 6.5.1 术语
+### 术语
 
 - 路径（Path）：从根结点到某个结点经过的分支序列
 - （根到结点的）路径长度：路径中的分支数
 - 树的路径长度（Path Length，PL）：从根结点到所有叶子结点的路径长度和
-- 带权路径长度（WPL）：设一颗有n个带权值叶结点的二叉树，$W_k$为第k个叶结点的权值，$L_k$为第k个叶结点的路径长度
+- 带权路径长度（WPL）：设一颗有n个带权值叶结点的二叉树，$$W_k$$为第k个叶结点的权值，$$L_k$$为第k个叶结点的路径长度
 
 $$
 WPL=\sum\limits_{k=1}^nW_k*L_k
 $$
 
-### 6.5.2 定义
+### 定义
 
 对于一组确定权值的结点，所构造出不同形态二叉树的带权路径长度并不相同。将其中具有最小带权路径长度的二叉树称为**哈夫曼树**（最优二叉树）
 
 构造方法：取最小的两个结点构树（左小右大），重复
 
-### 6.5.3 哈夫曼编码
+### 哈夫曼编码
 
 哈夫曼编码是一种前缀码，解码时没有歧义，相比于等长编码可以节省空间
 
 - 计算字母频率作为权值，构造哈夫曼树，
 - 叶子结点具有哈夫曼编码
-- 规定左子树为0，右子树为1，写出字母编码
+- 规定左子树为 0，右子树为 1，写出字母编码
 
 <img src="https://trou.oss-cn-shanghai.aliyuncs.com/img/image-20210118092851997.png" alt="image-20210118092851997" style="zoom:67%;" />
 
-## 6.6 等价类及其表示(并查集)
+## 等价类及其表示(并查集)
 
 - 定义
 
@@ -1949,9 +1949,9 @@ $$
     1. 查找效率取决于树的高度
 2. 树的高度取决于合并操作
 
-![image-20210611144154134](http://image.trouvaille0198.top/image-20210611144154134.png)
+![image-20210611144154134](http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210611144154134.png)
 
-### 6.6.1 合并算法的改进
+### 合并算法的改进
 
 1. 按照高度
 
@@ -1969,11 +1969,11 @@ $$
 
     设 j 是以 i 为根的树中的一个结点，则对于从 j 到根 i 的路径上的每一个结点 k，如果 k 的双亲不等于 i，则把 i 设置为 k 的双亲。
 
-<img src="http://image.trouvaille0198.top/image-20210329101540959.png" alt="image-20210329101540959" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210329101540959.png" alt="image-20210329101540959" style="zoom:50%;" />
 
 ​		使用折叠规则完成一次查找，所需时间比 `Find()` 多，但是能改善树的性能，减少以后查找操作所需的时间。
 
-### 6.6.2 类模板定义
+### 类模板定义
 
 结点模板
 
@@ -2012,7 +2012,7 @@ public:
 };
 ```
 
-### 6.6.3 具体定义
+### 具体定义
 
 ```c++
 template <class T>
@@ -2091,9 +2091,9 @@ void UnionFindSets<T>::DepthUnion(T a, T b)
 }
 ```
 
-# 七、图
+# 图
 
-## 7.1 基本概念
+## 基本概念
 
 数据结构中的图：不带自身环，关联边不能多于一条
 $$
@@ -2103,27 +2103,27 @@ $$
 
 有向边又称为弧，有弧尾（始点）和弧头（终点）
 
-## 7.2 存储结构
+## 存储结构
 
 思考：如何找到环？
 
-### 7.2.1 邻接矩阵
+### 邻接矩阵
 
-#### 1）概念
+#### 概念
 
-<img src="http://image.trouvaille0198.top/image-20210412081500935.png" alt="image-20210412081500935" style="zoom:55%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412081500935.png" alt="image-20210412081500935" style="zoom:55%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210412081530638.png" alt="image-20210412081530638" style="zoom: 55%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412081530638.png" alt="image-20210412081530638" style="zoom: 55%;" />
 
 用一维数组 `vertexes[]` 存储顶点信息，二维数组 `arcs[]` 存储边信息
 
-<img src="http://image.trouvaille0198.top/image-20210412081633859.png" alt="image-20210412081633859" style="zoom:55%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412081633859.png" alt="image-20210412081633859" style="zoom:55%;" />
 
-#### 2）无向图的邻接矩阵
+#### 无向图的邻接矩阵
 
-<img src="http://image.trouvaille0198.top/image-20210412082225634.png" alt="image-20210412082225634" style="zoom:55%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412082225634.png" alt="image-20210412082225634" style="zoom:55%;" />
 
-##### 1. 类模板定义
+##### 类模板定义
 
 ```c++
 //图的邻接矩阵类
@@ -2177,17 +2177,17 @@ public:
 };
 ```
 
-### 7.2.2 邻接表
+### 邻接表
 
 把邻接矩阵的每一行记为一个单链表，把竖着排列的边连接成为一个边链表
 
 记录有向图的出度，使用**逆邻接表**
 
-<img src="http://image.trouvaille0198.top/image-20210412083406393.png" alt="image-20210412083406393" style="zoom:55%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412083406393.png" alt="image-20210412083406393" style="zoom:55%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210412083416383.png" alt="image-20210412083416383" style="zoom:55%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412083416383.png" alt="image-20210412083416383" style="zoom:55%;" />
 
-### 7.2.3 邻接多重表
+### 邻接多重表
 
 (Adjacency Multilist)
 
@@ -2195,12 +2195,12 @@ public:
 
 邻接多重表中，每条边用一个结点表示，每个顶点也用一个结点表示
 
-<img src="http://image.trouvaille0198.top/image-20210412084350845.png" alt="image-20210412084350845" style="zoom: 50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412084350845.png" alt="image-20210412084350845" style="zoom: 50%;" />
 
 - data：存储此顶点的数据；
 - firstedge：指针域，用于指向同该顶点有直接关联的存储其他顶点的节点
 
-<img src="http://image.trouvaille0198.top/image-20210412084359057.png" alt="image-20210412084359057" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412084359057.png" alt="image-20210412084359057" style="zoom:50%;" />
 
 - mark：标志域，用于标记此节点是否被操作过，例如在对图中顶点做遍历操作时，为了防止多次操作同一节点，mark 域为 0 表示还未被遍历；mark 为 1 表示该节点已被遍历；
 - ivex 和 jvex：数据域，分别存储图中各边两端的顶点所在数组中的位置下标；
@@ -2208,9 +2208,9 @@ public:
 - jlink：指针域，指向下一个存储与 jvex 有直接关联顶点的节点；
 - info：指针域，用于存储与该顶点有关的其他信息，比如无向网中各边的权
 
-<img src="http://image.trouvaille0198.top/image-20210412084959127.png" alt="image-20210412084959127" style="zoom:67%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412084959127.png" alt="image-20210412084959127" style="zoom:67%;" />
 
-### 7.2.4 十字链表
+### 十字链表
 
 （Orthogonal List）
 
@@ -2218,19 +2218,19 @@ public:
 
 十字链表（即有向图的邻接多重表）可以看作是邻接表和逆邻接表的合体
 
-<img src="http://image.trouvaille0198.top/image-20210412085322307.png" alt="image-20210412085322307" style="zoom:60%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412085322307.png" alt="image-20210412085322307" style="zoom:60%;" />
 
-## 7.3 遍历
+## 遍历
 
 思考：深度、广度分别有什么应用？
 
-### 7.3.1 深度优先遍历 DFS
+### 深度优先遍历 DFS
 
 （Depth First Search, DFS）
 
 理论上，结果不唯一
 
-#### 1）步骤
+#### 步骤
 
 1. 访问节点 v，并标记其已访问
 2. 取 v 的第一个邻接顶点 w
@@ -2244,20 +2244,20 @@ public:
 
 
 
-<img src="http://image.trouvaille0198.top/image-20210412090916957.png" alt="image-20210412090916957" style="zoom:67%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412090916957.png" alt="image-20210412090916957" style="zoom:67%;" />
 
-#### 2）时间复杂度
+#### 时间复杂度
 
 - 邻接表：O(n+e)
 - 邻接矩阵：O(n^2^)
 
-#### 3）实现
+#### 实现
 
-### 7.3.2 广度优先遍历 BFS
+### 广度优先遍历 BFS
 
 （Breadth First Search, BFS）
 
-#### 1）步骤
+#### 步骤
 
 1. 访问节点 v，并标记其已访问，使 v 入队
 2. 队空时，返回；若队非空，继续
@@ -2271,51 +2271,51 @@ public:
     2. 若未被访问，访问 w 并标记，使 w 入队，继续
 7. 取 v 的下下个邻接顶点覆盖 w，转步骤 5
 
-![image-20210424141055004](http://image.trouvaille0198.top/image-20210424141055004.png)
+![image-20210424141055004](http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210424141055004.png)
 
-#### 2）时间复杂度
+#### 时间复杂度
 
 - 邻接表：O(n+e)
 - 邻接矩阵：O(n^2^)
 
-### 7.3.3 连通分量
+### 连通分量
 
 遍历算法的应用
 
 定义：非连通图中的极大连通子图
 
-## 7.4 最小生成树
+## 最小生成树
 
-### 7.4.1 概念
+### 概念
 
-#### 1）生成树
+#### 生成树
 
 - 定义：连通图的极小连通子图
 
 - 特点
     - 任意两顶点有且只有一条路径
     - n 个顶点的生成树具有 n-1 条边
-    - 生成树不唯一，n 个顶点的完全图有 $n^{n-2}$ 种生成树
+    - 生成树不唯一，n 个顶点的完全图有 $$n^{n-2}$$ 种生成树
     - 不同遍历方法 / 不同顶点出发 / 不同存储结构，生成树不同
     - n 个顶点 n-1 条边也不一定是生成树
 
-#### 2）最小生成树
+#### 最小生成树
 
 （minimum cost spanning tree, MST）
 
 - 定义：连通网中，权值总和最小的生成树，全称最小代价生成树
 
-<img src="http://image.trouvaille0198.top/image-20210412100310369.png" alt="image-20210412100310369" style="zoom:67%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412100310369.png" alt="image-20210412100310369" style="zoom:67%;" />
 
 - 性质：假设 N = (V, E) 是一个连通网，U 是顶点集 V的一个非空子集。若 (u, v) 是一条具有最小权值的边，其中u∈U， v∈V - U，则必存在一棵包含边（u，v）的最小生成树
 
-### 7.4.2 克鲁斯卡尔算法
+### 克鲁斯卡尔算法
 
 (Kruskal)
 
-#### 1）步骤
+#### 步骤
 
-<img src="http://image.trouvaille0198.top/image-20210412101458244.png" alt="image-20210412101458244" style="zoom: 50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412101458244.png" alt="image-20210412101458244" style="zoom: 50%;" />
 
 设 G = (V, E) 是具有 n 个顶点的连通网，T = (U，TE) 是其最小生成树。
 
@@ -2323,39 +2323,39 @@ public:
 
 2. 重复 1，知道 TE 中含有 n-1 条边为止
 
-<img src="http://image.trouvaille0198.top/image-20210412101256880.png" alt="image-20210412101256880" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412101256880.png" alt="image-20210412101256880" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210412101237144.png" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412101237144.png" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210412102147705.png" alt="image-20210412102147705" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412102147705.png" alt="image-20210412102147705" style="zoom:50%;" />
 
-#### 2）实现
+#### 实现
 
 用最小堆来找最小边
 
 用并查集来判断有无环
 
-### 7.4.3 普利姆算法
+### 普利姆算法
 
 (Prim)
 
 基于 MST 性质、
 
-#### 1）步骤
+#### 步骤
 
-<img src="http://image.trouvaille0198.top/image-20210412103207051.png" alt="image-20210412103207051" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412103207051.png" alt="image-20210412103207051" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210412101256880.png" alt="image-20210412101256880" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412101256880.png" alt="image-20210412101256880" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210412102751502.png" alt="image-20210412102751502" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412102751502.png" alt="image-20210412102751502" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210412103347778.png" alt="image-20210412103347778" style="zoom:67%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210412103347778.png" alt="image-20210412103347778" style="zoom:67%;" />
 
-## 7.5 最短路径
+## 最短路径
 
 （Shortest Path）
 
-### 7.5.1 类别
+### 类别
 
 - 单源点最短路径
 
@@ -2365,23 +2365,23 @@ public:
 
     给定网 G，求其中顶点到其他各顶点的最短路径
 
-### 7.5.2 弧上权值非负的单源点最短路径
+### 弧上权值非负的单源点最短路径
 
-<img src="http://image.trouvaille0198.top/image-20210419081428998.png" alt="image-20210419081428998" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419081428998.png" alt="image-20210419081428998" style="zoom:50%;" />
 
-#### 1）迪杰斯特拉算法（Dijkstra）
+#### 迪杰斯特拉算法（Dijkstra）
 
 按路径长度递增的次序来产生最短路径；先求路径最短的一条，然后参照它进行刷新，求出长度次短的一条，以此类推，被求出长度的顶点放入集合 S 中，当 S 满，代表算法结束
 
-<img src="http://image.trouvaille0198.top/image-20210419081437115.png" alt="image-20210419081437115" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419081437115.png" alt="image-20210419081437115" style="zoom:50%;" />
 
 引入 dist[]，存储 v 到 v~i~ **当前**找到的最短路径长度；引入 path[]，存储 v~i~ 的直接前驱节点
 
-<img src="http://image.trouvaille0198.top/image-20210419083104462.png" alt="image-20210419083104462" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419083104462.png" alt="image-20210419083104462" style="zoom:50%;" />
 
 只看初边
 
-#### 2）实现
+#### 实现
 
 ```cpp
 template <class ElemType, class WeightType>
@@ -2451,43 +2451,43 @@ void AdjMatrixGraph<ElemType, WeightType>::Dijkstra(int v)
 }
 ```
 
-### 7.5.3 弧上权值任意值的单源点最短路径
+### 弧上权值任意值的单源点最短路径
 
-#### 1）贝尔曼 - 福特算法
+#### 贝尔曼 - 福特算法
 
 从原点依次经过其他顶点，来缩短到达顶点的最短路径长度。要求：途中不能有路径长度为负数的**回路**
 
-<img src="http://image.trouvaille0198.top/image-20210419085915738.png" alt="image-20210419085915738" style="zoom:40%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419085915738.png" alt="image-20210419085915738" style="zoom:40%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210419090104101.png" alt="image-20210419090104101" style="zoom: 45%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419090104101.png" alt="image-20210419090104101" style="zoom: 45%;" />
 
 递推公式
 
-<img src="http://image.trouvaille0198.top/image-20210419090451877.png" alt="image-20210419090451877" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419090451877.png" alt="image-20210419090451877" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210419090559757.png" alt="image-20210419090559757" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419090559757.png" alt="image-20210419090559757" style="zoom:50%;" />
 
-### 7.5.4 所有点之间的最短路径
+### 所有点之间的最短路径
 
-#### 1）重复迪杰斯特拉
+#### 重复迪杰斯特拉
 
 以每一个点为原点，重复执行迪杰斯特拉算法；O(n^3^)
 
-#### 2）弗洛伊德（Floyd）算法
+#### 弗洛伊德（Floyd）算法
 
-<img src="http://image.trouvaille0198.top/image-20210419091217637.png" alt="image-20210419091217637" style="zoom:45%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419091217637.png" alt="image-20210419091217637" style="zoom:45%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210419091738628.png" alt="image-20210419091738628" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419091738628.png" alt="image-20210419091738628" style="zoom:50%;" />
 
-## 7.6 活动网络
+## 活动网络
 
 （Activity Network）
 
-### 7.6.1 用顶点表示活动的网络
+### 用顶点表示活动的网络
 
-<img src="http://image.trouvaille0198.top/image-20210419093621497.png" alt="image-20210419093621497" style="zoom:45%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419093621497.png" alt="image-20210419093621497" style="zoom:45%;" />
 
-#### 1）概念
+#### 概念
 
 - 有向无环图（Directed acycline graph）：一个无环的有向图，简称 DAG 图
 
@@ -2497,30 +2497,30 @@ void AdjMatrixGraph<ElemType, WeightType>::Dijkstra(int v)
     - 从图中删除该顶点和所有以它为尾的弧
     - 重复前两步，直到所有顶点均已输出
 
-<img src="http://image.trouvaille0198.top/image-20210419100943832.png" alt="image-20210419100943832" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419100943832.png" alt="image-20210419100943832" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210419101244005.png" alt="image-20210419101244005" style="zoom:45%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419101244005.png" alt="image-20210419101244005" style="zoom:45%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210419101738002.png" alt="image-20210419101738002" style="zoom:40%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419101738002.png" alt="image-20210419101738002" style="zoom:40%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210419101626892.png" alt="image-20210419101626892" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419101626892.png" alt="image-20210419101626892" style="zoom:50%;" />
 
-### 7.6.2 用边表示活动的网络
+### 用边表示活动的网络
 
-<img src="http://image.trouvaille0198.top/image-20210419101854295.png" alt="image-20210419101854295" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419101854295.png" alt="image-20210419101854295" style="zoom:50%;" />
 
-#### 1）概念
+#### 概念
 
 - 边表示活动的网络（activity on edges）：简称 **AOE 网络**
     - 边的值：此活动持续的时间
 
-<img src="http://image.trouvaille0198.top/image-20210425112512555.png" alt="image-20210425112512555" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210425112512555.png" alt="image-20210425112512555" style="zoom:50%;" />
 
 - 顶点表示事件（event），保证一个源点，一个汇点
     - 关键路径：从源点到汇点，具有最大路径长度的路径
     - 关键活动：关键路径上的所有活动
 
-<img src="http://image.trouvaille0198.top/image-20210419102732678.png" alt="image-20210419102732678" style="zoom:45%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210419102732678.png" alt="image-20210419102732678" style="zoom:45%;" />
 
 - 求事件（顶点）的最早开始时间 ve：从源点起，入边的值加上其弧尾的最早开始时间，取最大值（看入边，求最大）
 
@@ -2528,16 +2528,16 @@ void AdjMatrixGraph<ElemType, WeightType>::Dijkstra(int v)
 - 求活动（边）的最早开始时间 ee：弧尾的最早开始时间
 - 求活动（边）的最晚开始时间 el：其弧头的最晚开始时间减去活动时间
 
-# 八、查找
+# 查找
 
-## 8.1 基本概念
+## 基本概念
 
 - 数据表：数据的有限集合
 - 关键字：字段、属性域；互不相同的关键字也成为主关键字
 - 查找表：支持查找功能的数据表
     - 静态查找表：表中元素固定不变
     - 动态查找表：表中元素在插入和删除时会得到调整，当查找失败时，将给定值的数据元素插入数据表中
-- 装载因子 / 装填因子：数据表的长度 m 与数据元素个数 n 的比值，$\alpha=n/m$
+- 装载因子 / 装填因子：数据表的长度 m 与数据元素个数 n 的比值，$$\alpha=n/m$$
 - 平均查找长度 ASL (Average Search Length)：n 个关键字，第 i 个元素被查找的概率 P~i~，查找第 i 个元素所需进行关键字的比较次数为 C~i~
 
 $$
@@ -2546,12 +2546,12 @@ $$
 
 
 
-## 8.2 顺序表
+## 顺序表
 
-### 8.2.1 顺序查找
+### 顺序查找
 一个一个去找
 
-#### 1）一般实现
+#### 一般实现
 
 ```C++
 template <class T>
@@ -2567,7 +2567,7 @@ int SqSearch(T elem[], int n, T key)
 }
 ```
 
-#### 2）监视哨实现
+#### 监视哨实现
 
 0 号元素不存内容时，while 中的索引 0 可以起到**监视哨**的作用
 
@@ -2583,7 +2583,7 @@ int SqSearch(T elem[], int n, T key)
 }
 ```
 
-#### 3）性能分析
+#### 性能分析
 
 $$
 ASL=\sum_{i=1}^n\frac{1}{n}\times i=\frac{n-1}{2}
@@ -2593,23 +2593,23 @@ $$
 
 缺点：查找效率低
 
-### 8.2.2 二分查找
+### 二分查找
 
 （Binary Search）
 
 按顺序方式存储 + 关键字排序
 
-<img src="http://image.trouvaille0198.top/image-20210426083900676.png" alt="image-20210426083900676" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210426083900676.png" alt="image-20210426083900676" style="zoom:50%;" />
 
-#### 1）迭代实现
+#### 迭代实现
 
-#### 2）递归实现
+#### 递归实现
 
-#### 3）性能分析
+#### 性能分析
 
 用二叉查找树来分析
 
-<img src="http://image.trouvaille0198.top/image-20210426084515121.png" alt="image-20210426084515121" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210426084515121.png" alt="image-20210426084515121" style="zoom:50%;" />
 $$
 ASL=\log_2(n+1)-1
 $$
@@ -2617,43 +2617,43 @@ $$
 
 缺点：只限于顺序存储结构，只适合做静态查找	
 
-### 8.2.3 分块查找
+### 分块查找
 
-#### 1）索引顺序表
+#### 索引顺序表
 
 主表 + 索引表
 
-<img src="http://image.trouvaille0198.top/image-20210426090835254.png" alt="image-20210426090835254" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210426090835254.png" alt="image-20210426090835254" style="zoom:50%;" />
 
 当完全索引表中的关键字分块有序存放，可以建立二级索引表
 
 块与块之间有序，块内无序
 
-<img src="http://image.trouvaille0198.top/image-20210426090931149.png" alt="image-20210426090931149" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210426090931149.png" alt="image-20210426090931149" style="zoom:50%;" />
 
-#### 2）分块查找
+#### 分块查找
 
 分两次查找
 
-### 8.2.4 倒排表
+### 倒排表
 
 （Inverted Index List）
 
 经常搜索的关键字设次索引
 
-#### 1）链式倒排表
+#### 链式倒排表
 
-<img src="http://image.trouvaille0198.top/image-20210426092552894.png" alt="image-20210426092552894" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210426092552894.png" alt="image-20210426092552894" style="zoom:50%;" />
 
 寻找时，求交集即可
 
 表长不定，管理麻烦
 
-#### 2）单元素倒排表
+#### 单元素倒排表
 
-<img src="http://image.trouvaille0198.top/image-20210426092730832.png" alt="image-20210426092730832" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210426092730832.png" alt="image-20210426092730832" style="zoom:50%;" />
 
-### 8.2.5 比较
+### 比较
 
 | 要求     | 顺序查找         | 折半查找 | 分块查找           |
 | -------- | ---------------- | -------- | ------------------ |
@@ -2661,13 +2661,13 @@ $$
 | 表结构   | 有序表、无序表   | 有序表   | 分块有序表         |
 | 存储结构 | 顺序存储、线性表 | 顺序存储 | 顺序存储、线性链表 |
 
-## 8.3 二叉排序树
+## 二叉排序树
 
 BST（Binary Sort / Search Tree）
 
 对于链式存储，使用二叉排序树（二叉搜索树），以适应动态查找的要求
 
-### 8.3.1 定义
+### 定义
 
 - 要不是空树，要不符合以下性质
     - 左子树节点关键字都小于根节点
@@ -2676,9 +2676,9 @@ BST（Binary Sort / Search Tree）
 
 特点：中序遍历结果有序
 
-<img src="http://image.trouvaille0198.top/image-20210426100408810.png" alt="image-20210426100408810" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210426100408810.png" alt="image-20210426100408810" style="zoom:50%;" />
 
-### 8.3.2 模板定义
+### 模板定义
 
 ```c++
 template <class T>
@@ -2707,7 +2707,7 @@ public:
 };
 ```
 
-### 8.3.3 查找
+### 查找
 
 - 步骤
     1. 从根开始将 x 与节点值进行比较
@@ -2717,19 +2717,19 @@ public:
 
 比较次数不大于 ` h + 1`
 
-### 8.3.4 性能分析
+### 性能分析
 
-<img src="http://image.trouvaille0198.top/image-20210426101235491.png" alt="image-20210426101235491" style="zoom:40%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210426101235491.png" alt="image-20210426101235491" style="zoom:40%;" />
 
-### 8.3.5 操作
+### 操作
 
-#### 1）插入
+#### 插入
 
 先搜索 BST 中有无该节点，无才插入
 
 查找失败时插入
 
-#### 2）删除
+#### 删除
 
 被删节点为叶子，将双亲结点的相应指针置空
 
@@ -2742,191 +2742,191 @@ public:
 1. 左子树找最大
 2. 或者右子树找最小
 
-## 8.4 平衡二叉树
+## 平衡二叉树
 
 AVL
 
-### 8.4.1 定义
+### 定义
 
 - 或是空树，或是符合以下条件的二叉排序树
 
 - 左右子树都是平衡二叉树。
 - 左右子树的高度差值不超过 1
 - 平衡因子（Balance factor，BF）：左右子树高度差，其绝对值不超过 1
-- 其 ASL可保持在 $O(log_2n)$
+- 其 ASL可保持在 $$O(log_2n)$$
 
-<img src="http://image.trouvaille0198.top/image-20210510080329179.png" alt="image-20210510080329179" style="zoom:60%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510080329179.png" alt="image-20210510080329179" style="zoom:60%;" />
 
-### 8.4.2 平衡旋转
+### 平衡旋转
 
-#### 1）LL 平衡旋转——右单旋转
+#### LL 平衡旋转——右单旋转
 
 左孩子的左子树失衡
 
 顺时针旋转
 
-<img src="http://image.trouvaille0198.top/image-20210510081108724.png" alt="image-20210510081108724" style="zoom:70%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510081108724.png" alt="image-20210510081108724" style="zoom:70%;" />
 
-#### 2）RR 平衡旋转——左单旋转
+#### RR 平衡旋转——左单旋转
 
 右孩子的右子树失衡
 
 逆时针旋转
 
-<img src="http://image.trouvaille0198.top/image-20210510081227246.png" alt="image-20210510081227246" style="zoom:70%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510081227246.png" alt="image-20210510081227246" style="zoom:70%;" />
 
-#### 3）LR 平衡旋转——先左后右双旋转
+#### LR 平衡旋转——先左后右双旋转
 
 先逆时针再顺时针
 
 左孩子的右子树失衡
 
-<img src="http://image.trouvaille0198.top/image-20210510081304603.png" alt="image-20210510081304603" style="zoom:70%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510081304603.png" alt="image-20210510081304603" style="zoom:70%;" />
 
-#### 4）RL 平衡旋转——先右后左双旋转
+#### RL 平衡旋转——先右后左双旋转
 
 右孩子的左子树失衡
 
-<img src="http://image.trouvaille0198.top/image-20210510081355449.png" alt="image-20210510081355449" style="zoom:70%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510081355449.png" alt="image-20210510081355449" style="zoom:70%;" />
 
-### 8.4.3 插入
+### 插入
 
-#### 1）思想
+#### 思想
 
 1. 按二叉树的排序性质插入节点
 2. 若插入后产生失衡，继续步骤 3，否则结束
 3. 找到失衡的最小子树
 4. 判断平衡旋转类型，进行相应的平衡化处理
 
-<img src="http://image.trouvaille0198.top/image-20210510083139739.png" alt="image-20210510083139739" style="zoom:55%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510083139739.png" alt="image-20210510083139739" style="zoom:55%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210510083150370.png" alt="image-20210510083150370" style="zoom:55%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510083150370.png" alt="image-20210510083150370" style="zoom:55%;" />
 
-#### 2）示例
+#### 示例
 
-<img src="http://image.trouvaille0198.top/image-20210510083216777.png" alt="image-20210510083216777" style="zoom:60%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510083216777.png" alt="image-20210510083216777" style="zoom:60%;" />
 
-### 8.4.4 删除
+### 删除
 
-#### 1）思想
+#### 思想
 
 定义布尔变量 `isShorter` 判断被删除结点的子树高度有没有被缩短
 
-<img src="http://image.trouvaille0198.top/image-20210510083857938.png" alt="image-20210510083857938" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510083857938.png" alt="image-20210510083857938" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210510083915922.png" alt="image-20210510083915922" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510083915922.png" alt="image-20210510083915922" style="zoom:50%;" />
 
-#### 2）示例
+#### 示例
 
 删除结点 50
 
-<img src="http://image.trouvaille0198.top/image-20210510084127101.png" alt="image-20210510084127101" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510084127101.png" alt="image-20210510084127101" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210613131053818.png" alt="image-20210613131053818" style="zoom:80%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210613131053818.png" alt="image-20210613131053818" style="zoom:80%;" />
 
-## 8.5 B-树
+## B-树
 
 二叉排序树适合在内存中组织较小的索引；若对于存放在外存中的较大的文件系统，使用B-树或B+树做文件索引
 
-### 8.5.1 动态的 m 路查找树
+### 动态的 m 路查找树
 
 **定义**
 
 - 或是空树，或满足以下条件
-- 根节点最多有 m 棵树并具有结构 $(n,p_0,k_1,p_1,k_2,p_2,\cdots,k_n,p_n)$。其中，$p_i$ 是指向子树的指针，$k_i$ 是数据元素的关键字；$1\le i\le n<m$
-- $k_i<k_{i+1},i\le i<n$
-- 在  $p_i$ 所指的子树中所有数据元素的关键字都大于 $k_i$，且小于 $k_{i+1}$，$0\le i\le n$
-- 在  $p_n$ 所指的子树中所有数据元素的关键字都大于 $k_n$，而子树 $p_0$ 中的所有数据元素的关键字均小于 $k_1$
-- $p_i$ 所指的子树也是 m 路查找树，$0\le i\le n$
+- 根节点最多有 m 棵树并具有结构 $$(n,p_0,k_1,p_1,k_2,p_2,\cdots,k_n,p_n)$$。其中，$$p_i$$ 是指向子树的指针，$$k_i$$ 是数据元素的关键字；$$1\le i\le n<m$$
+- $$k_i<k_{i+1},i\le i<n$$
+- 在  $$p_i$$ 所指的子树中所有数据元素的关键字都大于 $$k_i$$，且小于 $$k_{i+1}$$，$$0\le i\le n$$
+- 在  $$p_n$$ 所指的子树中所有数据元素的关键字都大于 $$k_n$$，而子树 $$p_0$$ 中的所有数据元素的关键字均小于 $$k_1$$
+- $$p_i$$ 所指的子树也是 m 路查找树，$$0\le i\le n$$
 
-<img src="http://image.trouvaille0198.top/image-20210510090656452.png" alt="image-20210510090656452" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510090656452.png" alt="image-20210510090656452" style="zoom:50%;" />
 
-### 8.5.2 定义
+### 定义
 
 一颗 m 阶的 B-树是一种平衡的 m 路查找树，通常用于文件系统（外查找）
 
 失败节点即叶子节点
 
-<img src="http://image.trouvaille0198.top/image-20210510090920715.png" alt="image-20210510090920715" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510090920715.png" alt="image-20210510090920715" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210510091034784.png" alt="image-20210510091034784" style="zoom: 50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510091034784.png" alt="image-20210510091034784" style="zoom: 50%;" />
 
-### 8.5.3 插入
+### 插入
 
-#### 1）思路
+#### 思路
 
 插入指在结点中插入关键字
 
-关键字数在 $[\lceil m/2 \rceil-1,m-1]$ 之间
+关键字数在 $$[\lceil m/2 \rceil-1,m-1]$$ 之间
 
 若关键字超出 m-1，结点要分裂
 
-<img src="http://image.trouvaille0198.top/image-20210510092154652.png" alt="image-20210510092154652" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510092154652.png" alt="image-20210510092154652" style="zoom:50%;" />
 
 插入是个递归的过程
 
-#### 2）示例
+#### 示例
 
 按照关键字 {35，26，74，60，49，17，41，53，29} 构建 3 阶 B-树
 
-<img src="http://image.trouvaille0198.top/image-20210510092510793.png" alt="image-20210510092510793" style="zoom: 60%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510092510793.png" alt="image-20210510092510793" style="zoom: 60%;" />
 
-### 8.5.4 删除
+### 删除
 
-<img src="http://image.trouvaille0198.top/image-20210510093239533.png" alt="image-20210510093239533" style="zoom:60%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510093239533.png" alt="image-20210510093239533" style="zoom:60%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210510093539490.png" alt="image-20210510093539490" style="zoom:60%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510093539490.png" alt="image-20210510093539490" style="zoom:60%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210510093553411.png" alt="image-20210510093553411" style="zoom:60%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510093553411.png" alt="image-20210510093553411" style="zoom:60%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210510093634951.png" alt="image-20210510093634951" style="zoom:60%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510093634951.png" alt="image-20210510093634951" style="zoom:60%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210510095925874.png" alt="image-20210510095925874" style="zoom:67%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510095925874.png" alt="image-20210510095925874" style="zoom:67%;" />
 
-### 8.5.5 B+树
+### B+树
 
-#### 1）定义
+#### 定义
 
 叶子结点包含了全部关键字及对应指针
 
-<img src="http://image.trouvaille0198.top/image-20210510100347513.png" alt="image-20210510100347513" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510100347513.png" alt="image-20210510100347513" style="zoom:50%;" />
 
-## 8.6 散列表
+## 散列表
 
 基本思想：在存储地址和关键字之间构建一个确定的对应关系。不经过比较就能在一次存取中得到所查元素
 
-### 8.6.1 定义
+### 定义
 
-- 哈希函数：在存储地址和关键字之间构建一个确定的对应关系/函数 $Addr(ai)=H(ki)$
+- 哈希函数：在存储地址和关键字之间构建一个确定的对应关系/函数 $$Addr(ai)=H(ki)$$
 
 - 哈希表/散列表
 
 - 哈希存储/散列存储
 - 哈希查找/散列查找
-- 冲突 (collision)：$key1\neq key2,H(key1)=H(key2)$
+- 冲突 (collision)：$$key1\neq key2,H(key1)=H(key2)$$
 
-### 8.6.2 哈希函数
+### 哈希函数
 
 定义域：全部关键字
 
 值域：0 到 m-1 之间
 
-#### 1）构造方法
+#### 构造方法
 
 不是重点
 
 - 直接定址法
 
-    $H(key)=a*key+b$，无冲突，但是要求散列地址空间大小与关键字集合大小相同
+    $$H(key)=a*key+b$$，无冲突，但是要求散列地址空间大小与关键字集合大小相同
 
 - 数字分析法
 
 - 除留余数法
 - 随机数法
 
-### 8.6.3 处理冲突
+### 处理冲突
 
-#### 1）开放地址法
+#### 开放地址法
 
 当冲突发生时，形成一个探查序列，逐个探查，直到找出一个空位置
 
@@ -2941,37 +2941,37 @@ AVL
 4. 双散列函数探查法
     - d~i~=iH~2~(key)[计算时间增加]
 
-<img src="http://image.trouvaille0198.top/image-20210510102542131.png" alt="image-20210510102542131" style="zoom: 40%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510102542131.png" alt="image-20210510102542131" style="zoom: 40%;" />
 
-#### 2）拉链法
+#### 拉链法
 
 将所有关键字为同义词的记录存储在一个单链表中，并用一维数组存放头指针
 
-<img src="http://image.trouvaille0198.top/image-20210510102941399.png" alt="image-20210510102941399" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510102941399.png" alt="image-20210510102941399" style="zoom:50%;" />
 
-### 8.6.4 哈希查找
+### 哈希查找
 
-#### 1）过程
+#### 过程
 
-<img src="http://image.trouvaille0198.top/image-20210510103146013.png" alt="image-20210510103146013" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510103146013.png" alt="image-20210510103146013" style="zoom:50%;" />
 
-#### 2）分析
+#### 分析
 
 用 ASL 分析效率
 
-装填因子：$\alpha=\frac{表中填入的记录数}{哈希表长度}$
+装填因子：$$\alpha=\frac{表中填入的记录数}{哈希表长度}$$
 
-![image-20210510103516617](http://image.trouvaille0198.top/image-20210510103516617.png)
+![image-20210510103516617](http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210510103516617.png)
 
-# 九、排序
+# 排序
 
 原理和算法实现不一定对应
 
-<img src="http://image.trouvaille0198.top/image-20210524094014136.png" alt="image-20210524094014136" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210524094014136.png" alt="image-20210524094014136" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/849589-20180402133438219-1946132192.png" style="zoom: 40%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/849589-20180402133438219-1946132192.png" style="zoom: 40%;" />
 
-## 9.1 基础知识
+## 基础知识
 
 - 排序（sorting）
 
@@ -2987,7 +2987,7 @@ AVL
 
 - 趟：对所有数据进行一次操作
 
-### 9.1.1 分组
+### 分组
 
 - 按排序依据原则分组
     - 插入排序
@@ -2996,15 +2996,15 @@ AVL
     - 归并排序
     - 基数排序（分配排序）
 - 按排序所需工作量分组
-    - 简单的排序方法：$T(n)=O(n^2)$
-    - 先进的排序方法：$T(n)=O(log_n)$
-    - 基数排序：$T(n)=O(d.n)$
+    - 简单的排序方法：$$T(n)=O(n^2)$$
+    - 先进的排序方法：$$T(n)=O(log_n)$$
+    - 基数排序：$$T(n)=O(d.n)$$
 
-### 9.1.2 排序的存储方式
+### 排序的存储方式
 
 顺序表、链表、类静态链表
 
-### 9.1.3 各种排序方法的选用
+### 各种排序方法的选用
 
 - 时间复杂度
 - 空间复杂度
@@ -3013,7 +3013,7 @@ AVL
 - 参加排序数据的规模
     - 较少，采用简单的排序方法
         - 直接插入排序，选择排序
-    - 较大，选用执行时间与 $nlog_2n$ 成正比的排序方法
+    - 较大，选用执行时间与 $$nlog_2n$$ 成正比的排序方法
         - 快速排序，希尔排序，堆排序，归并排序
     - 较大，且关键字位数少
         - 基数排序
@@ -3023,19 +3023,19 @@ AVL
     - 分组基本有序
         - 冒泡排序、直接插入排序
 
-## 9.2 交换排序
+## 交换排序
 
 （Exchange Sort）
 
 对两个数据比较，如果逆序，则两者交换位置
 
-### 9.2.1 冒泡排序
+### 冒泡排序
 
 两两相比，重复，每次循环只确定一个最大/小值
 
-![img](http://image.trouvaille0198.top/849589-20171015223238449-2146169197.gif)
+![img](http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/849589-20171015223238449-2146169197.gif)
 
-#### 1）实现
+#### 实现
 
 顺序表实现
 
@@ -3050,28 +3050,28 @@ SeqList<T> BubbleSort(SeqList<T> list)
 }
 ```
 
-#### 2）分析
+#### 分析
 
-- 比较次数：$\sum\limits_{i=1}^{n-1}(n-i)= n(n-1)/2$
-- 移动次数：$3\sum\limits_{i=1}^{n-1}(n-i)= 3n(n-1)/2$
+- 比较次数：$$\sum\limits_{i=1}^{n-1}(n-i)= n(n-1)/2$$
+- 移动次数：$$3\sum\limits_{i=1}^{n-1}(n-i)= 3n(n-1)/2$$
 
-- 平均时间复杂度：$O(n^2)$
-    - 最好情况 $O(n)$，最坏情况 $O(n^2)$
+- 平均时间复杂度：$$O(n^2)$$
+    - 最好情况 $$O(n)$$，最坏情况 $$O(n^2)$$
 
-- 空间复杂度：$S(n)=O(1)$
+- 空间复杂度：$$S(n)=O(1)$$
 - 稳定
 
-### 9.2.2 快速排序
+### 快速排序
 
 （quick sort）
 
 任取某个元素作为基准，划分左右子表，再在左右子表中递归快排
 
-<img src="http://image.trouvaille0198.top/image-20210517094051933.png" alt="image-20210517094051933" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210517094051933.png" alt="image-20210517094051933" style="zoom:50%;" />
 
 ![1](https://images2017.cnblogs.com/blog/849589/201710/849589-20171015230936371-1413523412.gif)
 
-#### 1）实现
+#### 实现
 
 一般实现思路
 
@@ -3134,32 +3134,32 @@ void QuickSort(SeqList<T> &list)
 }
 ```
 
-#### 2）分析
+#### 分析
 
-- 比较次数：$\sum\limits_{i=1}^{n-1}(n-i)= n(n-1)/2$
-- 移动次数：$3\sum\limits_{i=1}^{n-1}(n-i)= 3n(n-1)/2$
-- 平均时间复杂度：$O(nlog_2n)$
-    - 最好情况 $O(nlog_2n)$，最坏情况 $O(n^2)$
+- 比较次数：$$\sum\limits_{i=1}^{n-1}(n-i)= n(n-1)/2$$
+- 移动次数：$$3\sum\limits_{i=1}^{n-1}(n-i)= 3n(n-1)/2$$
+- 平均时间复杂度：$$O(nlog_2n)$$
+    - 最好情况 $$O(nlog_2n)$$，最坏情况 $$O(n^2)$$
 - 空间复杂度
-    - 最坏情况 $S(n)=O(n)$
-    - 一般情况 $S(n)=O(log_2n)$
+    - 最坏情况 $$S(n)=O(n)$$
+    - 一般情况 $$S(n)=O(log_2n)$$
 - 不稳定
 
-## 9.3 插入排序
+## 插入排序
 
 （Insertion Sort）
 
 每次把一个数据插入到已经排序的序列中
 
-### 9.3.1 直接插入排序
+### 直接插入排序
 
 （Straight Insertion Sort）
 
-![](http://image.trouvaille0198.top/1258817-20190325144034879-1237555952.gif)
+![](http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/1258817-20190325144034879-1237555952.gif)
 
-<img src="http://image.trouvaille0198.top/image-20210517082910800.png" alt="image-20210517082910800" style="zoom: 60%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210517082910800.png" alt="image-20210517082910800" style="zoom: 60%;" />
 
-#### 1）实现
+#### 实现
 
 线性表实现
 
@@ -3178,20 +3178,20 @@ void StraightInsertionSort(SeqList<T> &list)
 }
 ```
 
-#### 2）分析
+#### 分析
 
-- 比较次数：$\sum\limits_{i=1}^{n-1}i=n(n-1)/2\approx n^2/2$
+- 比较次数：$$\sum\limits_{i=1}^{n-1}i=n(n-1)/2\approx n^2/2$$
 
-- 移动次数：$\sum\limits_{i=1}^{n-1}i+2=(n+4)(n-1)/2\approx n^2/2$
+- 移动次数：$$\sum\limits_{i=1}^{n-1}i+2=(n+4)(n-1)/2\approx n^2/2$$
 
-- 平均时间复杂度：$O(n^2)$
-    - 最好情况 $O(n)$，最坏情况 $O(n^2)$
+- 平均时间复杂度：$$O(n^2)$$
+    - 最好情况 $$O(n)$$，最坏情况 $$O(n^2)$$
     - 初始数据表越接近有序，效率越高
 
-- 空间复杂度：$S(n)=O(1)$
+- 空间复杂度：$$S(n)=O(1)$$
 - 稳定
 
-### 9.3.2 折半插入排序
+### 折半插入排序
 
 （Binary Insertion Sort）
 
@@ -3199,115 +3199,115 @@ void StraightInsertionSort(SeqList<T> &list)
 
 只能用于顺序存储
 
-#### 1）实现
+#### 实现
 
-#### 2）分析
+#### 分析
 
 - 比较次数减少了
 
 - 时间复杂度、空间复杂度与直接插入排序相同
 - 单纯的折半不能保证稳定性
 
-### 9.3.3 希尔排序
+### 希尔排序
 
 （Shell Sort）又称缩小增量排序
 
 先将待排关键字分为若干子列分别用直接插入法排序，再对全体关键字用直接插入排序
 
-n 个元素，取长度 d < n 作为间隔，分出 d 个子表，所有相距 d 的数据元素放在同一子表中，子表中进行直接插入排序；然后再缩小 d（如取 $d=\lceil d/2 \rceil$），重复迭代直到 d = 1 后，将所有数据一起来依一次直接插入排序
+n 个元素，取长度 d < n 作为间隔，分出 d 个子表，所有相距 d 的数据元素放在同一子表中，子表中进行直接插入排序；然后再缩小 d（如取 $$d=\lceil d/2 \rceil$$），重复迭代直到 d = 1 后，将所有数据一起来依一次直接插入排序
 
-<img src="http://image.trouvaille0198.top/image-20210517090706915.png" alt="image-20210517090706915" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210517090706915.png" alt="image-20210517090706915" style="zoom:50%;" />
 
-#### 2）分析
+#### 分析
 
 - 不稳定
 
-## 9.4 选择排序
+## 选择排序
 
 （Selection Sort）
 
-### 9.4.1 简单选择排序
+### 简单选择排序
 
 （Simple selection sort）
 
 在序列中首先找到最小元素放在首位，再在未排序序列（无序区）中寻找最小元素放在已排序序列（有序区）末尾，以此类推
 
-<img src="http://image.trouvaille0198.top/image-20210517102931312.png" alt="image-20210517102931312" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210517102931312.png" alt="image-20210517102931312" style="zoom:50%;" />
 
-![](http://image.trouvaille0198.top/849589-20171015224719590-1433219824.gif)
+![](http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/849589-20171015224719590-1433219824.gif)
 
-#### 1）实现
+#### 实现
 
-#### 2）分析
+#### 分析
 
 - 相较于冒泡排序，移动次数减少
-- 平均时间复杂度：$O(n^2)$
-    - 最好情况 $O(n^2)$，最坏情况 $O(n^2)$
+- 平均时间复杂度：$$O(n^2)$$
+    - 最好情况 $$O(n^2)$$，最坏情况 $$O(n^2)$$
 
-- 空间复杂度：$S(n)=O(1)$
+- 空间复杂度：$$S(n)=O(1)$$
 
 - 不稳定
 
-### 9.4.2 锦标赛排序
+### 锦标赛排序
 
 （Tournament sort）又称树形选择排序
 
 将 n 个元素两两分组，分别比较，得到 n/2 个优胜者，保留结果；对优胜者继续比较，以此类推。
 
-<img src="http://image.trouvaille0198.top/image-20210517103442290.png" alt="image-20210517103442290" style="zoom:60%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210517103442290.png" alt="image-20210517103442290" style="zoom:60%;" />
 
-#### 1）分析
+#### 分析
 
 - 以空间换时间
 
-- 比较次数：$O(nlog_2n)$
-- 时间复杂度：$O(nlog_2n)$
+- 比较次数：$$O(nlog_2n)$$
+- 时间复杂度：$$O(nlog_2n)$$
 - 空间复杂度：
 - 不稳定
 
-### 9.4.3 堆排序
+### 堆排序
 
 （Heap sort）
 
 建堆，输出堆顶，调整堆，以此类推
 
-<img src="http://image.trouvaille0198.top/image-20210517104227355.png" alt="image-20210517104227355" style="zoom:60%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210517104227355.png" alt="image-20210517104227355" style="zoom:60%;" />
 
-## 9.5 归并排序
+## 归并排序
 
 （Merge sort）
 
 归并：将两个（二路归并）或两个以上的有序表合并成一个新的有序表
 
-<img src="http://image.trouvaille0198.top/image-20210524080251828.png" alt="image-20210524080251828" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210524080251828.png" alt="image-20210524080251828" style="zoom:50%;" />
 
-### 9.5.1 二路归并排序
+### 二路归并排序
 
 一直两两归并，顺序存储时，另外开辟空间
 
-<img src="http://image.trouvaille0198.top/image-20210524081059143.png" alt="image-20210524081059143" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210524081059143.png" alt="image-20210524081059143" style="zoom:50%;" />
 
-<img src="http://image.trouvaille0198.top/image-20210524080641843.png" alt="image-20210524080641843" style="zoom: 67%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210524080641843.png" alt="image-20210524080641843" style="zoom: 67%;" />
 
-#### 1）实现
+#### 实现
 
-#### 2）分析
+#### 分析
 
 - 以空间换时间
 
-- 时间复杂度：$O(nlog_2n)$
-- 空间复杂度：$O(n)$
+- 时间复杂度：$$O(nlog_2n)$$
+- 空间复杂度：$$O(n)$$
 - 稳定
 
-### 9.5.2 递归归并
+### 递归归并
 
 一分为二，左右递归
 
-#### 1）实现
+#### 实现
 
-#### 2）分析
+#### 分析
 
-## 9.6 基数排序
+## 基数排序
 
 （Radix sort）也叫桶排序
 
@@ -3318,18 +3318,18 @@ n 个元素，取长度 d < n 作为间隔，分出 d 个子表，所有相距 d
 
 基数：关键字取值的种数
 
-![](http://image.trouvaille0198.top/849589-20171015232453668-1397662527.gif)
+![](http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/849589-20171015232453668-1397662527.gif)
 
-### 9.6.1 链式基数排序
+### 链式基数排序
 
 用链表模拟队列
 
-<img src="http://image.trouvaille0198.top/image-20210524092533926.png" alt="image-20210524092533926" style="zoom:50%;" />
+<img src="http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210524092533926.png" alt="image-20210524092533926" style="zoom:50%;" />
 
-![image-20210524093145089](http://image.trouvaille0198.top/image-20210524093145089.png)
+![image-20210524093145089](http://markdown-1303167219.cos.ap-shanghai.myqcloud.com/image-20210524093145089.png)
 
 #### 分析
 
 - 时间复杂度 n 记录数，d 关键字位数，radix 关键字取值范围
-    - $O(d(n+radix))$，即—— n 趟 * （n 次分配 + radix 次收集）
+    - $$O(d(n+radix))$$，即—— n 趟 * （n 次分配 + radix 次收集）
 
